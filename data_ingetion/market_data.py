@@ -5,6 +5,7 @@ import os
 
 
 def portfolio_data(region: str = "IND"):
+    region = "IND"
     if region == "IND":
         portfolio = "/data_ingetion/portfolios/IND.csv"
     else:
@@ -80,5 +81,21 @@ def earning_summary(symbol):
     selected_metric = income_metrics.loc[metrics] / scaler
 
     response = f"Earning metrics for {symbol} are following in {currency} currency in {units}: \n {selected_metric}"
+
+    return response
+
+
+def get_update(symbol):
+    stock = yf.Ticker(ticker=symbol)
+    data = stock.news
+    news = ""
+
+    for info in data[:5]:
+        news += info["content"]["title"] + "\n"
+        news += info["content"]["summary"] + "\n\n"
+
+    pc = price_change(symbol, 7)
+
+    response = f"Price change for {symbol} in past 7 days is {pc} \n\n NEWS :\n\n{news}"
 
     return response

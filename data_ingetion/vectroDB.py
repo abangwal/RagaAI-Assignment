@@ -5,10 +5,16 @@ import pypdf
 import uuid
 import os
 
+# for chromaDB
+__import__("pysqlite3")
+import sys
+
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 VECTOR_NAME = "database"
 EMBEDDING_MODEL = "togethercomputer/m2-bert-80M-2k-retrieval"
 
-CHROMA_PATH = "./chroma_storage"
+CHROMA_PATH = "chroma_storage"
 
 
 api_key = os.getenv("TOGETHER_API")

@@ -47,6 +47,11 @@ def get_orchertration_resposne(query, history):
             url="http://127.0.0.1:7860/data/get_knowledge", json=data["parameters"]
         ).json()
 
+    elif data["tool"] == "get_update":
+        result = requests.post(
+            url="http://127.0.0.1:7860/data/get_update", json=data["parameters"]
+        ).json()
+
     elif data["tool"] == None:
         return data["parameters"]
 

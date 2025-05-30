@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from .market_data import price_change, earning_summary, portfolio_data
+from .market_data import price_change, earning_summary, portfolio_data, get_update
 from .vectroDB import get_relevant_chunks
 
 app = APIRouter()
@@ -43,3 +43,8 @@ def get_portfolio_data(req: PortfolioReq):
 @app.post("/get_knowledge")
 def get_knowledge(req: KnowledgeReq):
     return {"response": get_relevant_chunks(req.query)}
+
+
+@app.post("/get_update")
+def get_ticker_update(req: EarningReq):
+    return {"response": get_update(req.symbol)}

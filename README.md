@@ -18,6 +18,7 @@
 * `/data/get_earning_metrics` : This tool generates the stock earnings summary over the past 3–4 years using YFinance earning metrics.
 * `/data/get_portfolio_data` : This tool brings a current portfolio snapshot/updates. *Currently only supports IND portfolio*.
 * `/data/get_knowledge` : This is a ***RAG*** based tool. It uses a company's prior documents as a knowledge base and uses semantic similarity to provide context on company-related user queries.
+* `/data/get_update` : This tool is used to get latest updates on stock by scraping NEWS from variety of publications. This ensures diverse unbiased NEWS as context for agile responses.
 * `/orchestrator/orchestrator_decision` : Tool to make orchestration decisions—i.e., which tool to call with what parameters.
 * `/orchestrator/final_response` : Tool to generate the final user-friendly response with **guardrails** to avoid giving aggressive financial advice.
 
