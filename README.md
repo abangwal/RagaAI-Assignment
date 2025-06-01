@@ -4,6 +4,8 @@
 ---
 ![](diagram.jpeg)
 
+[**Checkout detailed Documentation**](docs/ai_tool_usage.md)
+
 #### Overview
 * An acyclic workflow where the user interacts through a Streamlit App.
 * User's query is first parsed by the Orchestrator API endpoint that returns the result for what tools to use along with the result of those tools' execution.
